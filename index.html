@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avatar: La Leyenda de Aang — Explorador TMDB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <div class="bg-canvas" id="bgCanvas"></div>
+
+  <div class="app">
+
+    <header>
+      <span class="header-emblem">🌀</span>
+      <h1>Avatar: La Leyenda de Aang</h1>
+      <p class="subtitle">Explorador · The Movie Database API</p>
+    </header>
+
+    <section id="api-config">
+      <label for="api-key-input">🔑 Ingresa tu API Key de TMDB</label>
+      <input
+        type="password"
+        id="api-key-input"
+        placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        autocomplete="off"
+      />
+      <button class="btn btn-primary" onclick="setApiKey()">Conectar</button>
+      <button class="btn btn-secondary" onclick="clearApiKey()">Limpiar</button>
+      <span id="api-status" class="status-idle">Sin conectar</span>
+    </section>
+
+    <nav id="main-nav">
+      <button class="nav-btn" data-section="info" onclick="navigate('info')">
+        <span class="nav-icon">📺</span>
+        Información General
+      </button>
+      <button class="nav-btn" data-section="seasons" onclick="navigate('seasons')">
+        <span class="nav-icon">🌊</span>
+        Temporadas
+      </button>
+      <button class="nav-btn" data-section="cast" onclick="navigate('cast')">
+        <span class="nav-icon">🔥</span>
+        Reparto y Crew
+      </button>
+      <button class="nav-btn" data-section="genres" onclick="navigate('genres')">
+        <span class="nav-icon">🌿</span>
+        Géneros TV
+      </button>
+      <button class="nav-btn" data-section="videos" onclick="navigate('videos')">
+        <span class="nav-icon">🎬</span>
+        Videos y Trailers
+      </button>
+      <button class="nav-btn" data-section="similar" onclick="navigate('similar')">
+        <span class="nav-icon">💨</span>
+        Series Similares
+      </button>
+      <button class="nav-btn" data-section="discover" onclick="navigate('discover')">
+        <span class="nav-icon">🔍</span>
+        Descubrimiento
+      </button>
+    </nav>
+
+    <section id="results">
+      <div class="welcome">
+        <span class="welcome-icon">🌀</span>
+        <h2>Bienvenido, Maestro Avatar</h2>
+        <p>
+          Ingresa tu API Key de TMDB y selecciona una sección del menú
+          para comenzar a explorar el mundo de Avatar: La Leyenda de Aang.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      Hecho con ❤️ usando la
+      <a href="https://www.themoviedb.org" target="_blank">API de TMDB</a>
+      · Avatar: La Leyenda de Aang (2005–2008) ·
+      <a href="https://developer.themoviedb.org/docs" target="_blank">Documentación</a>
+    </footer>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
