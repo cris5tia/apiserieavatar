@@ -69,10 +69,6 @@ async function apiGet(endpoint, params = {}) {
 }
 
 
-/**
- * Valida y guarda la API Key ingresada por el usuario.
- * Realiza una petición de prueba para verificar que funciona.
- */
 async function setApiKey() {
   const input = document.getElementById('api-key-input').value.trim();
   const status = document.getElementById('api-status');

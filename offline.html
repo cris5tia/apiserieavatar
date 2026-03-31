@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sin conexión — Avatar TMDB</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #0a0f1e;
+            --surface: #111827;
+            --water-light: #4fb3e8;
+            --air: #f5e6c8;
+            --air-dark: #c9a96e;
+            --text-dim: #94a3b8;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background: var(--bg);
+            color: var(--air);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 460px;
+        }
+
+        .emblem {
+            font-size: 72px;
+            display: block;
+            margin-bottom: 20px;
+            animation: pulse 3s ease-in-out infinite;
+            filter: grayscale(0.4);
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 12px #4fb3e8) grayscale(0.4);
+            }
+
+            50% {
+                filter: drop-shadow(0 0 28px #4fb3e8) grayscale(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.3rem;
+            color: var(--water-light);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .badge-offline {
+            display: inline-block;
+            background: rgba(79, 179, 232, 0.1);
+            border: 1px solid rgba(79, 179, 232, 0.3);
+            color: var(--water-light);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 28px;
+        }
+
+        .btn-retry {
+            display: inline-block;
+            padding: 12px 32px;
+            background: linear-gradient(135deg, #1a6fa8, #4fb3e8);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-retry:hover {
+            filter: brightness(1.15);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(79, 179, 232, 0.4);
+        }
+
+        .note {
+            margin-top: 24px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <span class="emblem">🌀</span>
+        <div class="badge-offline">Modo Offline</div>
+        <h1>Sin conexión</h1>
+        <p>
+            Parece que no hay conexión a internet en este momento.<br />
+            Los datos de TMDB requieren conexión activa para cargarse.<br />
+            Verifica tu red e intenta de nuevo.
+        </p>
+        <button class="btn-retry" onclick="location.reload()">
+            Reintentar conexión
+        </button>
+        <p class="note">Avatar: La Leyenda de Aang · Explorador TMDB</p>
+    </div>
+</body>
+
+</html>

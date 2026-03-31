@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Avatar: La Leyenda de Aang — Explorador TMDB</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <link rel="manifest" href="/manifest.json" />
+
+  <meta name="theme-color" content="#4fb3e8" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Avatar TMDB" />
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+
+  <meta name="description"
+    content="Explora información, temporadas, reparto y más de Avatar: La Leyenda de Aang usando la API de TMDB." />
+
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
 
   <div class="bg-canvas" id="bgCanvas"></div>
@@ -21,12 +39,7 @@
 
     <section id="api-config">
       <label for="api-key-input">🔑 Ingresa tu API Key de TMDB</label>
-      <input
-        type="password"
-        id="api-key-input"
-        placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-        autocomplete="off"
-      />
+      <input type="password" id="api-key-input" placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" autocomplete="off" />
       <button class="btn btn-primary" onclick="setApiKey()">Conectar</button>
       <button class="btn btn-secondary" onclick="clearApiKey()">Limpiar</button>
       <span id="api-status" class="status-idle">Sin conectar</span>
@@ -84,5 +97,22 @@
   </div>
 
   <script src="js/script.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('[Avatar PWA] Service Worker registrado. Scope:', registration.scope);
+          })
+          .catch((error) => {
+            console.error('[Avatar PWA] Error al registrar el Service Worker:', error);
+          });
+      });
+    } else {
+      console.warn('[Avatar PWA] Service Workers no soportados en este navegador.');
+    }
+  </script>
 </body>
+
 </html>
